@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ 'Editar' if proceso else 'Nuevo' }} Proceso</h1>
+<form method="POST"><div class="mb-3"><label>Nombre</label><input type="text" name="nombre" class="form-control" value="{{ proceso.nombre if proceso else '' }}" required></div><div class="mb-3"><label>Descripción</label><textarea name="descripcion" class="form-control">{{ proceso.descripcion if proceso else '' }}</textarea></div><button type="submit" class="btn btn-primary">Guardar</button></form>
+{% endblock %}

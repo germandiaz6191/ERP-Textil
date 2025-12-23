@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Historial - {{ referencia.nombre }}</h1>
+<table class="table"><thead><tr><th>Fecha</th><th>Tipo</th><th>Cantidad</th><th>Observaciones</th></tr></thead><tbody>{% for m in movimientos %}<tr><td>{{ m.fecha.strftime('%Y-%m-%d %H:%M') }}</td><td><span class="badge bg-{{ 'success' if m.tipo == 'Entrada' else 'danger' }}">{{ m.tipo }}</span></td><td>{{ m.cantidad }}</td><td>{{ m.observaciones }}</td></tr>{% endfor %}</tbody></table>
+{% endblock %}

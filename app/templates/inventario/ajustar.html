@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Ajustar Inventario - {{ inventario.referencia.nombre }}</h1>
+<form method="POST"><div class="mb-3"><label>Tipo</label><select name="tipo" class="form-control"><option value="Entrada">Entrada</option><option value="Salida">Salida</option></select></div><div class="mb-3"><label>Cantidad</label><input type="number" name="cantidad" class="form-control" required></div><div class="mb-3"><label>Observaciones</label><textarea name="observaciones" class="form-control"></textarea></div><button type="submit" class="btn btn-primary">Guardar</button></form>
+{% endblock %}

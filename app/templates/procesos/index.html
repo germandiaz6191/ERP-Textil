@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between mb-4"><h1>Tipos de Procesos</h1><a href="{{ url_for('procesos.nuevo') }}" class="btn btn-primary">Nuevo Proceso</a></div>
+<table class="table"><thead><tr><th>Nombre</th><th>Descripción</th><th>Acciones</th></tr></thead><tbody>{% for p in procesos %}<tr><td>{{ p.nombre }}</td><td>{{ p.descripcion }}</td><td><a href="{{ url_for('procesos.editar', id=p.id) }}" class="btn btn-sm btn-warning">Editar</a></td></tr>{% endfor %}</tbody></table>
+{% endblock %}

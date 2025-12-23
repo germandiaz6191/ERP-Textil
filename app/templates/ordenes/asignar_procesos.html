@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Asignar Procesos - Orden {{ orden.numero_orden }}</h1>
+<form method="POST">
+    <div id="procesos-container">
+        {% for p in orden.procesos_orden|sort(attribute='orden_secuencia') %}
+        <div class="card mb-2">
+            <div class="card-body">
+                <select name="procesos[]" class="form-control mb-2"><option value="">Seleccionar proceso</option>{% for proceso in procesos %}<option value="{{ proceso.id }}" {{ 'selected' if p.proceso_id == proceso.id else '' }}>{{ proceso.nombre }}</option>{% endfor %}</select>
+                <input type="text" name="responsables[]" class="form-control mb-2" placeholder="Responsable" value="{{ p.responsable }}">
+                <input type="number" name="tiempos[]" class="form-control" placeholder="Tiempo estimado (min)" value="{{ p.tiempo_estimado }}">
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <button type="button" class="btn btn-secondary" onclick="agregarProceso()">Agregar Proceso</button>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+<script>
+function agregarProceso() {
+    const html = `<div class="card mb-2"><div class="card-body"><select name="procesos[]" class="form-control mb-2"><option value="">Seleccionar proceso</option>{% for proceso in procesos %}<option value="{{ proceso.id }}">{{ proceso.nombre }}</option>{% endfor %}</select><input type="text" name="responsables[]" class="form-control mb-2" placeholder="Responsable"><input type="number" name="tiempos[]" class="form-control" placeholder="Tiempo estimado (min)"></div></div>`;
+    document.getElementById('procesos-container').insertAdjacentHTML('beforeend', html);
+}
+</script>
+{% endblock %}

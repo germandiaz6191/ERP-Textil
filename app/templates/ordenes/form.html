@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ 'Editar' if orden else 'Nueva' }} Orden</h1>
+<div class="card">
+    <div class="card-body">
+        <form method="POST">
+            <div class="mb-3"><label>Número de Orden</label><input type="text" name="numero_orden" class="form-control" value="{{ orden.numero_orden if orden else '' }}" required></div>
+            <div class="mb-3"><label>Orden de Compra</label><input type="text" name="orden_compra" class="form-control" value="{{ orden.orden_compra if orden else '' }}"></div>
+            <div class="mb-3"><label>Referencia</label>
+                <select name="referencia_id" class="form-control" required {{ 'disabled' if orden else '' }}>
+                    {% for ref in referencias %}
+                    <option value="{{ ref.id }}" {{ 'selected' if orden and orden.referencia_id == ref.id else '' }}>{{ ref.codigo }} - {{ ref.nombre }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3"><label>Cantidad</label><input type="number" name="cantidad" class="form-control" value="{{ orden.cantidad if orden else '' }}" required></div>
+            <div class="mb-3"><label>Observaciones</label><textarea name="observaciones" class="form-control">{{ orden.observaciones if orden else '' }}</textarea></div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{{ url_for('ordenes.index') }}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

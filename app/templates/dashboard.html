@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - ERP Textil{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Dashboard</h1>
+
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card stat-card">
+            <div class="card-body">
+                <h5 class="card-title">Referencias Activas</h5>
+                <h2>{{ total_referencias }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card stat-card">
+            <div class="card-body">
+                <h5 class="card-title">Órdenes Activas</h5>
+                <h2>{{ ordenes_activas }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card stat-card">
+            <div class="card-body">
+                <h5 class="card-title">Órdenes Terminadas</h5>
+                <h2>{{ ordenes_terminadas }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card stat-card border-warning">
+            <div class="card-body">
+                <h5 class="card-title">Inventario Bajo</h5>
+                <h2>{{ inventario_bajo|length }}</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Órdenes Recientes</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Orden</th>
+                            <th>Referencia</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for orden in ordenes_recientes %}
+                        <tr>
+                            <td><a href="{{ url_for('ordenes.ver', id=orden.id) }}">{{ orden.numero_orden }}</a></td>
+                            <td>{{ orden.referencia.nombre }}</td>
+                            <td><span class="badge bg-{{ 'success' if orden.estado == 'Terminada' else 'primary' }}">{{ orden.estado }}</span></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Procesos Pendientes</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Orden</th>
+                            <th>Proceso</th>
+                            <th>Responsable</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for proceso in procesos_pendientes %}
+                        <tr>
+                            <td><a href="{{ url_for('ordenes.ver', id=proceso.orden_id) }}">{{ proceso.orden.numero_orden }}</a></td>
+                            <td>{{ proceso.proceso.nombre }}</td>
+                            <td>{{ proceso.responsable or 'Sin asignar' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

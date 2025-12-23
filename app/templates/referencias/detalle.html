@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ referencia.codigo }} - {{ referencia.nombre }}</h1>
+<div class="card mt-3">
+    <div class="card-body">
+        <p><strong>Descripción:</strong> {{ referencia.descripcion }}</p>
+        <p><strong>Ficha Técnica:</strong></p>
+        <pre>{{ referencia.ficha_tecnica }}</pre>
+        <p><strong>Inventario Disponible:</strong> {{ referencia.inventario.cantidad_disponible if referencia.inventario else 0 }} unidades</p>
+        <a href="{{ url_for('referencias.editar', id=referencia.id) }}" class="btn btn-warning">Editar</a>
+        <a href="{{ url_for('referencias.index') }}" class="btn btn-secondary">Volver</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Orden {{ orden.numero_orden }}</h1>
+<div class="card">
+    <div class="card-body">
+        <p><strong>Referencia:</strong> {{ orden.referencia.codigo }} - {{ orden.referencia.nombre }}</p>
+        <p><strong>Cantidad:</strong> {{ orden.cantidad }}</p>
+        <p><strong>OC:</strong> {{ orden.orden_compra }}</p>
+        <p><strong>Estado:</strong> <span class="badge bg-{{ 'success' if orden.estado == 'Terminada' else 'primary' }}">{{ orden.estado }}</span></p>
+        {% if orden.estado != 'Terminada' %}<a href="{{ url_for('ordenes.asignar_procesos', id=orden.id) }}" class="btn btn-primary">Gestionar Procesos</a>{% endif %}
+    </div>
+</div>
+<h3 class="mt-4">Procesos</h3>
+<table class="table">
+    <thead><tr><th>Proceso</th><th>Responsable</th><th>Tiempo Est.</th><th>Estado</th><th>Acción</th></tr></thead>
+    <tbody>
+        {% for p in orden.procesos_orden|sort(attribute='orden_secuencia') %}
+        <tr>
+            <td>{{ p.proceso.nombre }}</td>
+            <td>{{ p.responsable or 'Sin asignar' }}</td>
+            <td>{{ p.tiempo_estimado }} min</td>
+            <td><span class="badge bg-{{ 'success' if p.estado == 'Completado' else 'warning' }}">{{ p.estado }}</span></td>
+            <td><button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{ p.id }}">Actualizar</button></td>
+        </tr>
+        <div class="modal fade" id="modal{{ p.id }}">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form method="POST" action="{{ url_for('procesos.actualizar_estado', id=p.id) }}">
+                        <div class="modal-header"><h5>Actualizar Proceso</h5></div>
+                        <div class="modal-body">
+                            <div class="mb-3"><label>Estado</label><select name="estado" class="form-control"><option value="Pendiente">Pendiente</option><option value="En Proceso">En Proceso</option><option value="Completado">Completado</option></select></div>
+                            <div class="mb-3"><label>Responsable</label><input type="text" name="responsable" class="form-control" value="{{ p.responsable }}"></div>
+                            <div class="mb-3"><label>Tiempo Real (min)</label><input type="number" name="tiempo_real" class="form-control" value="{{ p.tiempo_real }}"></div>
+                        </div>
+                        <div class="modal-footer"><button type="submit" class="btn btn-primary">Guardar</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </tbody>
+</table>
+{% if orden.estado == 'En Proceso' and orden.progreso == 100 %}
+<form method="POST" action="{{ url_for('ordenes.completar', id=orden.id) }}"><button class="btn btn-success">Completar Orden</button></form>
+{% endif %}
+{% endblock %}

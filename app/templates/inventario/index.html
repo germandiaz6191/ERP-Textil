@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Inventario</h1>
+<table class="table"><thead><tr><th>Referencia</th><th>Disponible</th><th>Última Act.</th><th>Acciones</th></tr></thead><tbody>{% for inv in inventarios %}<tr><td>{{ inv.referencia.codigo }} - {{ inv.referencia.nombre }}</td><td>{{ inv.cantidad_disponible }}</td><td>{{ inv.ultima_actualizacion.strftime('%Y-%m-%d') }}</td><td><a href="{{ url_for('inventario.ajustar', id=inv.id) }}" class="btn btn-sm btn-primary">Ajustar</a> <a href="{{ url_for('inventario.movimientos', referencia_id=inv.referencia_id) }}" class="btn btn-sm btn-info">Historial</a></td></tr>{% endfor %}</tbody></table>
+{% endblock %}

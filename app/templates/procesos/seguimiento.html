@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Seguimiento de Procesos</h1>
+<table class="table"><thead><tr><th>Orden</th><th>Proceso</th><th>Responsable</th><th>Estado</th><th>Tiempo Est.</th></tr></thead><tbody>{% for p in procesos %}<tr><td><a href="{{ url_for('ordenes.ver', id=p.orden_id) }}">{{ p.orden.numero_orden }}</a></td><td>{{ p.proceso.nombre }}</td><td>{{ p.responsable }}</td><td><span class="badge bg-warning">{{ p.estado }}</span></td><td>{{ p.tiempo_estimado }} min</td></tr>{% endfor %}</tbody></table>
+{% endblock %}
