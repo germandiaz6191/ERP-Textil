@@ -8,7 +8,23 @@ Después de analizar las necesidades expresadas en el audio del cliente, **Odoo 
 
 ## ⚡ Inicio Rápido
 
-### Instalación con Docker (5 minutos)
+### Opción A: VPS en la Nube (Recomendado - $5-12/mes)
+
+**Mejor para**: Acceso desde cualquier lugar, múltiples usuarios
+
+📖 **Ver guía completa**: `DESPLIEGUE_VPS.md`
+
+**Paso rápido**:
+1. Crear Droplet en DigitalOcean ($12/mes)
+2. SSH al servidor
+3. Instalar Docker y copiar configuración
+4. Acceder desde `http://TU_IP:8069`
+
+**Tiempo**: 30 minutos
+
+### Opción B: Instalación Local con Docker
+
+**Para**: Pruebas locales en tu computadora
 
 ```bash
 cd ERP-Textil
