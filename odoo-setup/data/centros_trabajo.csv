@@ -1,0 +1,6 @@
+name,code,time_efficiency,capacity,working_time
+Corte,CORTE,100,1,8
+Confección,CONF,100,5,8
+Terminación,TERM,100,2,8
+Control de Calidad,QC,100,1,8
+Empaque,EMP,100,2,8

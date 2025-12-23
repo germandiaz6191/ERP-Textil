@@ -1,0 +1,4 @@
+name,default_code,type,categ_id/id,list_price,standard_price,route_ids/id
+Camiseta Básica Blanca,CAM-BAS-001,product,product.product_category_all,45000,25000,mrp.route_warehouse0_manufacture
+Pantalón Jean Clásico,PAN-JEAN-001,product,product.product_category_all,85000,50000,mrp.route_warehouse0_manufacture
+Camisa Manga Larga,CMS-ML-001,product,product.product_category_all,65000,35000,mrp.route_warehouse0_manufacture

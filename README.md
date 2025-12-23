@@ -1,5 +1,18 @@
 # ERP Textil - Sistema de Gestión de Producción
 
+## ⚠️ IMPORTANTE: Migración a Odoo Recomendada
+
+Este repositorio contiene dos soluciones:
+
+1. **Sistema Custom** (carpeta `app/`) - Desarrollo Flask básico
+2. **Odoo MRP** (carpeta `odoo-setup/`) - **✅ RECOMENDADO**
+
+**Para producción real, se recomienda usar Odoo**. Ver `README_ODOO.md` y `ODOO_INSTALACION.md` para detalles completos.
+
+---
+
+## Sistema Custom (Referencia)
+
 Sistema ERP básico diseñado específicamente para empresas textiles, que permite gestionar órdenes de producción, procesos, referencias e inventario.
 
 ## Características Principales
