@@ -8,21 +8,37 @@ Después de analizar las necesidades expresadas en el audio del cliente, **Odoo 
 
 ## ⚡ Inicio Rápido
 
-### Opción A: VPS en la Nube (Recomendado - $5-12/mes)
+### Opción A: AWS Lightsail (✅ GRATIS 12 Meses)
 
-**Mejor para**: Acceso desde cualquier lugar, múltiples usuarios
+**Mejor para**: Acceso desde cualquier lugar, múltiples usuarios, **sin costo inicial**
 
-📖 **Ver guía completa**: `DESPLIEGUE_VPS.md`
+📖 **Ver guía completa**: `DESPLIEGUE_AWS_LIGHTSAIL.md`
+
+**Ventajas**:
+- 🎁 **Gratis por 12 meses** (AWS Free Tier)
+- 🚀 Infraestructura AWS confiable
+- 💰 Después: solo $3.50/mes
+- 📈 Escalable a EC2/RDS
 
 **Paso rápido**:
-1. Crear Droplet en DigitalOcean ($12/mes)
-2. SSH al servidor
-3. Instalar Docker y copiar configuración
+1. Crear cuenta AWS (10 min)
+2. Crear instancia Lightsail (3 min)
+3. Instalar Odoo (30 min)
 4. Acceder desde `http://TU_IP:8069`
+
+**Tiempo**: 45 minutos | **Costo**: $0 primer año
+
+---
+
+### Opción B: DigitalOcean/Hetzner ($5-12/mes)
+
+📖 **Ver guía**: `DESPLIEGUE_VPS.md`
+
+Si prefieres otro proveedor o ya usaste Free Tier de AWS
 
 **Tiempo**: 30 minutos
 
-### Opción B: Instalación Local con Docker
+### Opción C: Instalación Local con Docker
 
 **Para**: Pruebas locales en tu computadora
 
