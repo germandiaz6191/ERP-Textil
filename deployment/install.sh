@@ -131,22 +131,30 @@ sudo -u $ODOO_USER git pull
 # Instalar dependencias de Python
 echo -e "${YELLOW}  Instalando dependencias Python...${NC}"
 
-# Detectar versión de Python y ajustar gevent si es necesario
+# Detectar versión de Python
 PYTHON_VERSION=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
 PYTHON_MAJOR=$(python3 -c 'import sys; print(sys.version_info[0])')
 PYTHON_MINOR=$(python3 -c 'import sys; print(sys.version_info[1])')
 
-if [ "$PYTHON_MAJOR" -eq 3 ] && [ "$PYTHON_MINOR" -ge 10 ]; then
-    echo -e "${YELLOW}  Detectado Python $PYTHON_VERSION - Ajustando compatibilidad de gevent...${NC}"
+echo -e "${YELLOW}  Detectado Python $PYTHON_VERSION${NC}"
 
+# Crear virtual environment para Odoo
+echo -e "${YELLOW}  Creando virtual environment...${NC}"
+sudo -u $ODOO_USER python3 -m venv $ODOO_HOME/venv
+
+# Actualizar pip en el venv
+sudo -u $ODOO_USER $ODOO_HOME/venv/bin/pip install --upgrade pip setuptools wheel
+
+# Ajustar gevent si es Python 3.10+
+if [ "$PYTHON_MAJOR" -eq 3 ] && [ "$PYTHON_MINOR" -ge 10 ]; then
+    echo -e "${YELLOW}  Ajustando compatibilidad de gevent para Python 3.10+...${NC}"
     # Crear requirements.txt modificado compatible con Python 3.10+
     cat $ODOO_HOME/odoo/requirements.txt | sed 's/gevent==21.8.0/gevent==23.9.1/' > /tmp/requirements-odoo.txt
-
-    echo -e "${YELLOW}  Usando gevent 23.9.1 (compatible con Python 3.10+)${NC}"
-    sudo -u $ODOO_USER python3 -m pip install --user -r /tmp/requirements-odoo.txt
+    echo -e "${YELLOW}  Usando gevent 23.9.1 (compatible con Python $PYTHON_VERSION)${NC}"
+    sudo -u $ODOO_USER $ODOO_HOME/venv/bin/pip install -r /tmp/requirements-odoo.txt
 else
-    echo -e "${YELLOW}  Detectado Python $PYTHON_VERSION - Usando requirements estándar${NC}"
-    sudo -u $ODOO_USER python3 -m pip install --user -r requirements.txt
+    echo -e "${YELLOW}  Usando requirements estándar${NC}"
+    sudo -u $ODOO_USER $ODOO_HOME/venv/bin/pip install -r requirements.txt
 fi
 
 #############################################
@@ -220,7 +228,7 @@ After=network.target postgresql.service
 Type=simple
 User=$ODOO_USER
 Group=$ODOO_USER
-ExecStart=$ODOO_HOME/odoo/odoo-bin -c /etc/odoo.conf
+ExecStart=$ODOO_HOME/venv/bin/python3 $ODOO_HOME/odoo/odoo-bin -c /etc/odoo.conf
 WorkingDirectory=$ODOO_HOME/odoo
 StandardOutput=journal+console
 Restart=on-failure
