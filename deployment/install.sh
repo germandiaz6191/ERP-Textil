@@ -130,7 +130,24 @@ sudo -u $ODOO_USER git pull
 
 # Instalar dependencias de Python
 echo -e "${YELLOW}  Instalando dependencias Python...${NC}"
-sudo -u $ODOO_USER python3 -m pip install --user -r requirements.txt
+
+# Detectar versión de Python y ajustar gevent si es necesario
+PYTHON_VERSION=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
+PYTHON_MAJOR=$(python3 -c 'import sys; print(sys.version_info[0])')
+PYTHON_MINOR=$(python3 -c 'import sys; print(sys.version_info[1])')
+
+if [ "$PYTHON_MAJOR" -eq 3 ] && [ "$PYTHON_MINOR" -ge 10 ]; then
+    echo -e "${YELLOW}  Detectado Python $PYTHON_VERSION - Ajustando compatibilidad de gevent...${NC}"
+
+    # Crear requirements.txt modificado compatible con Python 3.10+
+    cat $ODOO_HOME/odoo/requirements.txt | sed 's/gevent==21.8.0/gevent==23.9.1/' > /tmp/requirements-odoo.txt
+
+    echo -e "${YELLOW}  Usando gevent 23.9.1 (compatible con Python 3.10+)${NC}"
+    sudo -u $ODOO_USER python3 -m pip install --user -r /tmp/requirements-odoo.txt
+else
+    echo -e "${YELLOW}  Detectado Python $PYTHON_VERSION - Usando requirements estándar${NC}"
+    sudo -u $ODOO_USER python3 -m pip install --user -r requirements.txt
+fi
 
 #############################################
 # 6. CREAR DIRECTORIOS Y MÓDULOS PERSONALIZADOS
