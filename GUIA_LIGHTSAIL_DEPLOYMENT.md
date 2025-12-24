@@ -181,9 +181,19 @@ Espera 1 minuto... ✅
 
 ## Paso 4.3: Clonar el Repositorio
 
+**Opción A - Rama con deployment (Recomendado):**
+
+```bash
+git clone -b claude/audio-client-analyzer-H7s2e https://github.com/germandiaz6191/ERP-Textil.git
+```
+
+**Opción B - Rama main (si ya mergeaste los cambios):**
+
 ```bash
 git clone https://github.com/germandiaz6191/ERP-Textil.git
 ```
+
+💡 **Usa Opción A** si no has mergeado los cambios a main todavía.
 
 Verás:
 ```
