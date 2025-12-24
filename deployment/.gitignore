@@ -1,0 +1,18 @@
+# Archivos de configuración con credenciales
+config.env
+CREDENCIALES.txt
+
+# Backups
+backups/
+*.sql
+*.tar.gz
+*.dump
+
+# Logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.bak
+*.swp
+*~

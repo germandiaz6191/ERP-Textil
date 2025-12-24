@@ -8,9 +8,35 @@ Después de analizar las necesidades expresadas en el audio del cliente, **Odoo 
 
 ## ⚡ Inicio Rápido
 
-### Opción A: AWS Lightsail (✅ GRATIS 12 Meses)
+### Opción A: 🚀 Deployment Automatizado desde Git (✅ RECOMENDADO)
 
-**Mejor para**: Acceso desde cualquier lugar, múltiples usuarios, **sin costo inicial**
+**Mejor para**: Instalación portable, reproducible, actualizable desde Git
+
+📖 **Ver guía completa**: `deployment/README.md`
+
+**Ventajas**:
+- ⚡ **Instalación con 1 comando**: `./install.sh`
+- 📦 **Todo en Git**: configuración, módulos, scripts
+- 🔄 **Updates automáticos**: `./deploy.sh`
+- 🌐 **Portable**: mismo setup en cualquier servidor
+- 🎯 **Sin Docker**: instalación nativa optimizada
+
+**Inicio rápido**:
+```bash
+git clone https://github.com/germandiaz6191/ERP-Textil.git
+cd ERP-Textil/deployment
+cp config.env.example config.env
+nano config.env  # Configurar passwords
+./install.sh     # ¡Y listo!
+```
+
+**Tiempo**: 15-20 minutos | **Compatible con**: AWS Lightsail, DigitalOcean, Hetzner, cualquier VPS
+
+---
+
+### Opción B: AWS Lightsail Manual (✅ GRATIS 12 Meses)
+
+**Mejor para**: Si prefieres instalación paso a paso
 
 📖 **Ver guía completa**: `DESPLIEGUE_AWS_LIGHTSAIL.md`
 
@@ -20,25 +46,19 @@ Después de analizar las necesidades expresadas en el audio del cliente, **Odoo 
 - 💰 Después: solo $3.50/mes
 - 📈 Escalable a EC2/RDS
 
-**Paso rápido**:
-1. Crear cuenta AWS (10 min)
-2. Crear instancia Lightsail (3 min)
-3. Instalar Odoo (30 min)
-4. Acceder desde `http://TU_IP:8069`
-
 **Tiempo**: 45 minutos | **Costo**: $0 primer año
 
 ---
 
-### Opción B: DigitalOcean/Hetzner ($5-12/mes)
+### Opción C: Otros VPS ($5-12/mes)
 
 📖 **Ver guía**: `DESPLIEGUE_VPS.md`
 
-Si prefieres otro proveedor o ya usaste Free Tier de AWS
+DigitalOcean, Hetzner, Vultr, Contabo
 
 **Tiempo**: 30 minutos
 
-### Opción C: Instalación Local con Docker
+### Opción D: Instalación Local con Docker
 
 **Para**: Pruebas locales en tu computadora
 
