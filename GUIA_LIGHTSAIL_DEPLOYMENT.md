@@ -213,6 +213,8 @@ cd ERP-Textil/deployment
 
 ## Paso 4.5: Configurar Variables
 
+⚠️ **IMPORTANTE**: NO necesitas tener base de datos creada. Vas a **INVENTAR** las passwords que el sistema usará.
+
 **Copiar plantilla:**
 ```bash
 cp config.env.example config.env
@@ -230,23 +232,30 @@ DB_PASSWORD="CambiaEstaPassword123!"
 ADMIN_PASSWORD="MasterPassword2024!"
 ```
 
-**Cambiar passwords:**
+**🔑 Cambiar passwords (inventa passwords nuevas):**
+
 1. Usa las flechas del teclado para moverte
 2. Borra las contraseñas de ejemplo
-3. Escribe las tuyas (ANÓTALAS en un papel)
+3. **Escribe passwords que TÚ inventes** (serán las que usarás después)
+4. **ANÓTALAS en un papel o celular** - las necesitarás
 
-Ejemplo:
+Ejemplo de cómo debería quedar:
 ```bash
-DB_PASSWORD="MiPassword2024Seguro!"
-ADMIN_PASSWORD="OtraPasswordSegura456!"
+DB_PASSWORD="MiPasswordTextil2024!"
+ADMIN_PASSWORD="MasterSegura456!"
 ```
+
+💡 **Qué hace el script con estas passwords:**
+- Crea la base de datos PostgreSQL con `DB_PASSWORD`
+- Configura Odoo con `ADMIN_PASSWORD`
+- Después las usarás en el navegador para acceder
 
 **Guardar y salir:**
 1. Presiona `Ctrl + X`
 2. Te pregunta "Save modified buffer?" → Escribe `Y` (sí)
 3. Te pregunta el nombre → Presiona `Enter`
 
-✅ Guardado
+✅ Guardado - El script usará estas passwords para configurar TODO automáticamente
 
 ## Paso 4.6: Ejecutar Instalación Automática
 
