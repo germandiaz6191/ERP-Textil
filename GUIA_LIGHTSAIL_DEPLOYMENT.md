@@ -105,13 +105,21 @@ Click **Cambiar zona de disponibilidad** → Dejar la que sugiere
 
 **Elige tu plan de instancia:**
 
-Para Free Tier (12 meses gratis):
-- Selecciona: **"$3.50 USD"** (512 MB RAM, 1 vCPU, 20 GB SSD)
-- Verás: ⭐ **"Primer mes gratis"** o **"Elegible para Free Tier"**
+⚠️ **IMPORTANTE - Recomendación de RAM:**
 
-💡 **Recomendación:**
-- Si solo vas a probar: 512 MB está bien
-- Para producción real: Mejor **$5 USD** (1 GB RAM) - también Free Tier
+**Opción Recomendada** (1 GB RAM):
+- Selecciona: **"$5 USD"** (1 GB RAM, 1 vCPU, 40 GB SSD)
+- ✅ También es Free Tier (12 meses gratis)
+- ✅ Odoo funciona perfecto sin ajustes
+- ✅ Mejor rendimiento
+
+**Opción Mínima** (512 MB RAM):
+- Selecciona: **"$3.50 USD"** (512 MB RAM, 1 vCPU, 20 GB SSD)
+- ⚠️ Requiere configuración adicional (ver Paso 5.1)
+- ⚠️ Rendimiento limitado
+- ✅ También es Free Tier
+
+💡 **Ambas opciones son GRATIS por 12 meses** - Recomendamos 1 GB para evitar problemas de memoria.
 
 ## Paso 2.6: Nombrar Instancia
 
@@ -311,6 +319,55 @@ Información de acceso:
 ```
 
 ✅ **¡LISTO!** Tu ERP está funcionando
+
+---
+
+## Paso 4.7: Optimizar para 512MB RAM (Solo si elegiste $3.50)
+
+⚠️ **Si elegiste la instancia de 512MB**, necesitas hacer estos ajustes:
+
+### Crear Swap (Memoria Virtual):
+
+```bash
+# Crear swap de 2GB
+sudo fallocate -l 2G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+
+# Hacer permanente
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+```
+
+### Reducir Workers de Odoo:
+
+```bash
+# Editar configuración
+sudo nano /etc/odoo.conf
+```
+
+Busca la línea:
+```ini
+workers = 2
+```
+
+Cámbiala por:
+```ini
+workers = 0
+```
+
+Guarda: `Ctrl+X`, `Y`, `Enter`
+
+### Reiniciar Odoo:
+
+```bash
+sudo systemctl restart odoo
+sudo systemctl status odoo
+```
+
+Debe decir `active (running)`.
+
+💡 **Si elegiste 1GB RAM, omite este paso** - Odoo funcionará perfecto sin ajustes.
 
 ---
 
@@ -549,11 +606,40 @@ free -h
 
 # Reducir workers de Odoo
 sudo nano /etc/odoo.conf
-# Cambiar: workers = 1
+# Cambiar: workers = 0
 sudo systemctl restart odoo
 ```
 
 O actualiza a plan de 1GB ($5/mes)
+
+## Odoo se reinicia constantemente (Error OOM)
+
+Si ves en los logs:
+```
+odoo.service: Failed with result 'oom-kill'
+```
+
+**Problema:** Sin memoria RAM suficiente.
+
+**Solución:**
+
+```bash
+# 1. Crear swap
+sudo fallocate -l 2G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+
+# 2. Reducir workers
+sudo nano /etc/odoo.conf
+# Cambiar: workers = 0
+
+# 3. Reiniciar
+sudo systemctl restart odoo
+```
+
+O mejor: **actualiza a 1GB RAM** en Lightsail (Gestionar → Cambiar plan)
 
 ---
 
