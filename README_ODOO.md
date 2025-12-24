@@ -12,7 +12,9 @@ Después de analizar las necesidades expresadas en el audio del cliente, **Odoo 
 
 **Mejor para**: Instalación portable, reproducible, actualizable desde Git
 
-📖 **Ver guía completa**: `deployment/README.md`
+📖 **Guías**:
+- `GUIA_LIGHTSAIL_DEPLOYMENT.md` - **Paso a paso AWS Lightsail** (para principiantes)
+- `deployment/README.md` - Documentación técnica completa
 
 **Ventajas**:
 - ⚡ **Instalación con 1 comando**: `./install.sh`
