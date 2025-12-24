@@ -94,7 +94,11 @@ Click **Cambiar zona de disponibilidad** → Dejar la que sugiere
 
 1. Click en **"Linux/Unix"**
 2. Click en **"Solo sistema operativo"**
-3. Selecciona: **"Ubuntu 22.04 LTS"**
+3. Selecciona: **"Ubuntu 20.04 LTS"** ⚠️ **IMPORTANTE: 20.04, NO 22.04**
+
+💡 **¿Por qué 20.04?**
+- Trae Python 3.8 que es 100% compatible con Odoo 17
+- Ubuntu 22.04 tiene problemas de compatibilidad con algunas librerías
 
 ## Paso 2.5: Seleccionar Plan
 
