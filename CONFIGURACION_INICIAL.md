@@ -73,28 +73,31 @@ Vuelve a **Aplicaciones** y busca e instala estos módulos:
 
 **Módulos Principales:**
 
-#### a) **Manufacturing** (Fabricación)
-- Buscar: "Manufacturing" o "Fabricación"
+#### a) **Manufactura** (Manufacturing)
+- Buscar: "Manufactura" o "Manufacturing"
 - Click **Instalar**
 - Espera 1-2 minutos
 
-#### b) **Inventory** (Inventario)
-- Buscar: "Inventory" o "Inventario"
+#### b) **Inventario** (Inventory)
+- Buscar: "Inventario" o "Inventory"
 - Click **Instalar**
 
-#### c) **Sales** (Ventas)
-- Buscar: "Sales" o "Ventas"
+#### c) **Ventas** (Sales)
+- Buscar: "Ventas" o "Sales"
 - Click **Instalar**
 
-#### d) **Purchase** (Compras)
-- Buscar: "Purchase" o "Compras"
+#### d) **Compra** (Purchase)
+- Buscar: "Compra" o "Purchase"
 - Click **Instalar**
 
 **Módulos Opcionales (Recomendados):**
 
-#### e) **Quality** (Control de Calidad)
-- Buscar: "Quality Control"
+#### e) **Calidad** (Quality)
+- Buscar: "Calidad" o "Quality"
+- Nombre técnico debajo: `quality` o `quality_control`
 - Click **Instalar**
+
+💡 **Nota:** Los nombres pueden variar según el idioma de tu instalación.
 
 ✅ **Instalación completada** - Verás nuevos menús en la barra superior
 
@@ -121,23 +124,27 @@ Click **Guardar**
 
 ### 3. Configurar Inventario (Importante)
 
-En **Ajustes** → Sección **"Inventario"**:
+⚠️ **IMPORTANTE:** Estas opciones están en **Ajustes** (menú superior), NO en el módulo Inventario directamente.
+
+En **Ajustes** → Sección **"Almacén"**:
+
+✅ Marca estas opciones:
+- ☑️ **Ubicaciones de almacenamiento** (o "Ubicaciones de Almacenamiento")
+- ☑️ **Rutas multietapa** (o "Rutas Multi-Paso")
+- ☑️ **Categorías de almacenamiento** (Opcional)
+
+💡 **Nota:** "Productos por Variantes" generalmente ya viene activado por defecto.
+
+Click **Guardar** (arriba a la derecha)
+
+### 4. Configurar Manufactura
+
+En **Ajustes** → Sección **"Manufactura"** (o "Fabricación"):
 
 ✅ Activar:
-- **Ubicaciones de Almacenamiento** (Multi-ubicación)
-- **Rutas Multi-Paso** (Para procesos de manufactura)
-- **Productos por Variantes** (Tallas, colores)
-
-Click **Guardar**
-
-### 4. Configurar Fabricación
-
-En **Ajustes** → Sección **"Fabricación"**:
-
-✅ Activar:
-- **Órdenes de Trabajo** (Work Orders)
-- **Centros de Trabajo**
-- **Subcontratación** (Opcional)
+- ☑️ **Órdenes de Trabajo** (Work Orders)
+  - Al marcar esta, **Centros de Trabajo** se activa automáticamente ✅
+- ☑️ **Subcontratación** (Opcional - puedes omitirlo)
 
 Click **Guardar**
 
@@ -147,24 +154,28 @@ Click **Guardar**
 
 Los centros de trabajo representan cada estación/proceso en tu producción.
 
-### 1. Ir a Fabricación → Configuración → Centros de Trabajo
+### 1. Ir a Manufactura → Configuración → Centros de Trabajo
 
-**Ruta:** Fabricación → Configuración → Centros de Trabajo
+**Ruta:** Manufactura → Configuración → Centros de Trabajo (o Fabricación)
 
 ### 2. Crear Centro: **CORTE**
 
 Click **Crear**
 
-**Configuración:**
-- **Nombre:** Corte
+**Pestaña "Información general":**
+- **Nombre del centro de trabajo:** Corte
 - **Código:** CORTE
-- **Capacidad:** 1 (unidad de trabajo a la vez)
-- **Tiempo de trabajo:** 8 horas/día
-- **Eficiencia:** 100%
-- **Coste por hora:** $10.000 COP (ajusta según tu costo)
+- **Horas de trabajo:** Standard 40 hours/week (seleccionar del dropdown)
 
-**Pestaña "Disponibilidad":**
-- **Horas de trabajo:** Lunes a Viernes, 8:00 AM - 5:00 PM
+**Sección "INFORMACIÓN DE PRODUCCIÓN":**
+- **Eficiencia de tiempo:** 100 %
+- **Capacidad:** 1 (número simple - significa 1 operario/estación)
+- **Objetivo de eficiencia general de los equipos:** 90 % (dejar por defecto)
+- **Tiempo de preparación:** 00:00 minutos (o 08:00 si aplica)
+- **Tiempo de limpieza:** 00:00 minutos
+
+**Sección "INFORMACIÓN DE COSTOS":**
+- **Costo por hora:** 0 (o ajusta según tu costo, ej: 10)
 
 Click **Guardar**
 
@@ -172,12 +183,14 @@ Click **Guardar**
 
 Click **Crear**
 
-- **Nombre:** Confección
+- **Nombre del centro de trabajo:** Confección
 - **Código:** CONF
+- **Horas de trabajo:** Standard 40 hours/week
+- **Eficiencia de tiempo:** 100 %
 - **Capacidad:** 5 (5 operarios simultáneos)
-- **Tiempo de trabajo:** 8 horas/día
-- **Eficiencia:** 100%
-- **Coste por hora:** $8.000 COP
+- **Tiempo de preparación:** 00:00
+- **Tiempo de limpieza:** 00:00
+- **Costo por hora:** 0 (o tu costo)
 
 Click **Guardar**
 
@@ -185,12 +198,14 @@ Click **Guardar**
 
 Click **Crear**
 
-- **Nombre:** Terminación
+- **Nombre del centro de trabajo:** Terminación
 - **Código:** TERM
+- **Horas de trabajo:** Standard 40 hours/week
+- **Eficiencia de tiempo:** 100 %
 - **Capacidad:** 2
-- **Tiempo de trabajo:** 8 horas/día
-- **Eficiencia:** 100%
-- **Coste por hora:** $7.000 COP
+- **Tiempo de preparación:** 00:00
+- **Tiempo de limpieza:** 00:00
+- **Costo por hora:** 0
 
 Click **Guardar**
 
@@ -198,11 +213,13 @@ Click **Guardar**
 
 Click **Crear**
 
-- **Nombre:** Control de Calidad
+- **Nombre del centro de trabajo:** Control de Calidad
 - **Código:** QC
+- **Horas de trabajo:** Standard 40 hours/week
+- **Eficiencia de tiempo:** 100 %
 - **Capacidad:** 1
-- **Tiempo de trabajo:** 8 horas/día
-- **Eficiencia:** 100%
+- **Tiempo de preparación:** 00:00
+- **Tiempo de limpieza:** 00:00
 - **Coste por hora:** $9.000 COP
 
 Click **Guardar**
@@ -211,12 +228,14 @@ Click **Guardar**
 
 Click **Crear**
 
-- **Nombre:** Empaque
+- **Nombre del centro de trabajo:** Empaque
 - **Código:** EMPAQ
+- **Horas de trabajo:** Standard 40 hours/week
+- **Eficiencia de tiempo:** 100 %
 - **Capacidad:** 2
-- **Tiempo de trabajo:** 8 horas/día
-- **Eficiencia:** 100%
-- **Coste por hora:** $6.000 COP
+- **Tiempo de preparación:** 00:00
+- **Tiempo de limpieza:** 00:00
+- **Costo por hora:** 0
 
 Click **Guardar**
 
