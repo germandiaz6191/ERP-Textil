@@ -243,31 +243,68 @@ Click **Guardar**
 
 ---
 
-## Paso 1.5: Configurar Ubicaciones de Inventario
+## Paso 1.5: Verificar Ubicaciones de Inventario (OPCIONAL)
+
+> ⚠️ **ESTE PASO ES OPCIONAL** - Odoo ya trae ubicaciones por defecto suficientes para empezar.
+>
+> Solo necesitas crear ubicaciones adicionales si tienes necesidades específicas de organización de almacén.
+>
+> **Puedes saltar directamente al Paso 2.1 (Crear Categorías de Productos)** si prefieres usar la configuración por defecto.
 
 ### 1. Ir a Inventario → Configuración → Ubicaciones
 
 **Ruta:** Inventario → Configuración → Ubicaciones
 
-### 2. Verificar Ubicaciones Existentes
+### 2. Ver TODAS las Ubicaciones (Quitar Filtros)
 
-Deberías ver ubicaciones por defecto:
-- **Stock** (Almacén principal)
-- **WH/Output** (Salida)
-- **WH/Input** (Entrada)
+Por defecto, Odoo muestra un filtro "Interno" que oculta algunas ubicaciones.
+
+**Para ver todas las ubicaciones:**
+1. Busca el filtro activo cerca de la parte superior (verás algo como "Interno X")
+2. Click en la **X** para quitar el filtro
+3. Ahora verás la lista completa de ubicaciones
+
+### 3. Ubicaciones que Ya Existen por Defecto
+
+Odoo 17 ya incluye estas ubicaciones automáticamente:
+
+**Ubicaciones Principales:**
+- **WH** (Warehouse - Almacén principal)
+- **WH/Existencias** (Stock - Inventario principal)
+- **WH/Packing Zone** (Zona de empaque)
+- **WH/Post-Production** (Post-producción)
+- **WH/Pre-Production** (Pre-producción)
+- **WH/Quality Control** (Control de calidad)
+
+**Ubicaciones Virtuales:**
+- **Partners** (Ubicaciones de clientes)
+- **Physical Locations** (Ubicaciones físicas)
+- **Virtual Locations** (Ubicaciones virtuales)
+
+**Ubicaciones de Producción:**
 - **Production** (Producción)
 
-### 3. Crear Ubicación: **Producto Terminado**
+### 4. ¿Necesitas Crear Ubicaciones Adicionales? (OPCIONAL)
 
-Click **Crear**
+Solo crea ubicaciones adicionales si necesitas una organización más específica, por ejemplo:
 
-- **Nombre de Ubicación:** Producto Terminado
-- **Ubicación Padre:** WH/Stock
-- **Tipo de Ubicación:** Ubicación interna
+**Ejemplo - Crear ubicación "Producto Terminado":**
+1. Click **Crear**
+2. **Nombre de Ubicación:** Producto Terminado
+3. **Ubicación Principal:** WH/Existencias (seleccionar del dropdown)
+4. **Tipo de Ubicación:** Ubicación interna
+5. Click **Guardar**
 
-Click **Guardar**
+### 💡 Recomendación:
 
-✅ **Ubicaciones Configuradas**
+**Para empezar, NO necesitas crear ubicaciones adicionales.** Las ubicaciones por defecto son suficientes para gestionar:
+- Materias primas en WH/Existencias
+- Producción en WH/Pre-Production y Production
+- Control de calidad en WH/Quality Control
+- Producto terminado en WH/Post-Production
+- Empaque en WH/Packing Zone
+
+✅ **Ubicaciones Verificadas** - Puedes continuar con el siguiente paso
 
 ---
 
