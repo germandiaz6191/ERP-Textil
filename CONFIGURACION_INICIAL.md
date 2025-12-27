@@ -683,11 +683,11 @@ El producto "Camiseta Básica" ahora tiene 12 variantes diferentes que se pueden
 
 La ficha técnica de producción.
 
-### 1. Ir a Fabricación → Productos → Lista de Materiales
+### 1. Ir a Manufactura → Productos → Lista de Materiales
 
-**Ruta:** Fabricación → Productos → Lista de Materiales
+**Ruta:** Manufactura → Productos → Lista de Materiales
 
-Click **Crear**
+Click **Nuevo**
 
 ### 2. Configurar BoM: **Camiseta Básica**
 
@@ -791,19 +791,24 @@ Click **Aplicar**
 
 ## Paso 3.2: Crear Orden de Producción
 
-### 1. Ir a Fabricación → Operaciones → Órdenes de Fabricación
+### 1. Ir a Manufactura → Operaciones → Órdenes de fabricación
 
-Click **Crear**
+**Ruta:** Manufactura → Operaciones → Órdenes de fabricación
+
+Click **Nuevo**
 
 ### 2. Configurar Orden de Producción
 
-**Información:**
-- **Producto:** Camiseta Básica (M, Blanco) - Selecciona una variante
-- **Cantidad a Producir:** 10 unidades
-- **Lista de Materiales:** BOM-CAM-001 (se selecciona automáticamente)
+**Campos principales:**
+- **Producto:** Camiseta Básica (M, Blanco) - Selecciona una variante específica
+- **Cantidad:** 10,00 unidades
+- **Lista de materiales:** Camiseta Básica (se selecciona automáticamente)
+- **Fecha programada:** Se genera automáticamente (puedes modificarla)
 
-**Información Adicional (Opcional):**
-- **Origen/Referencia:** OC-2024-001 (aquí pones la orden de compra del cliente)
+**PESTAÑA: Misceláneo (Opcional)**
+
+Si quieres rastrear el origen de esta orden:
+- **Origen:** OC-2024-001 (referencia a orden de compra del cliente, pedido, etc.)
 - **Fecha Planificada:** Hoy
 
 Click **Confirmar**
@@ -828,45 +833,93 @@ Verás 5 órdenes:
 4. Inspección QC (10 min estimados)
 5. Empaque Final (5 min estimados)
 
-### 2. Ejecutar Primera Operación: CORTE
+### 2. Acceder a las Órdenes de Trabajo
 
-Click en la orden de trabajo **"Corte de Tela"**
+Después de confirmar la orden de producción, Odoo genera automáticamente **5 órdenes de trabajo** (una por cada operación del BoM).
 
-**Asignar Responsable:**
-- **Responsable:** Selecciona un usuario (o crea uno nuevo)
-  - Ir a Ajustes → Usuarios → Crear
-  - Nombre: Juan Pérez - Cortador
-  - Email: juan@tuempresa.com
+**Cómo acceder:**
+- **Desde la Orden de Producción:** Click en la pestaña **"Órdenes de trabajo"**
+- **O desde el menú:** Manufactura → Operaciones → Órdenes de trabajo
 
-**Iniciar Trabajo:**
-- Click **"Iniciar"**
-- El cronómetro comenzará a contar
+Verás las 5 órdenes:
+1. Corte de Tela (15 min estimados)
+2. Costura/Confección (45 min estimados)
+3. Terminación (20 min estimados)
+4. Inspección QC (10 min estimados)
+5. Empaque Final (5 min estimados)
 
-**Simular Trabajo:**
-- Espera unos segundos (o avanza el tiempo editando manualmente)
+---
 
-**Finalizar:**
-- Click **"Finalizar"**
-- Odoo registrará el **tiempo real** vs **tiempo estimado**
+### 3. Ejecutar Operación 1: CORTE DE TELA
 
-Estado: **Hecho** ✅
+Click en la orden de trabajo **"Corte de Tela"** (aparecerá como 1/5 arriba)
 
-### 3. Ejecutar Segunda Operación: CONFECCIÓN
+**Estados de la orden:**
+- 🔘 En espera de otra orden de trabajo
+- 🔘 En espera de los componentes
+- 🔘 Disponible
+- 🔘 **En progreso** ← Selecciona este
+- 🔘 Terminada
 
-Click en **"Costura"**
+**Paso a paso:**
 
-- **Responsable:** María García - Costurera
-- Click **Iniciar**
-- ... (trabajo) ...
-- Click **Finalizar**
+1. **Iniciar la orden:**
+   - Click en el botón **"En progreso"** (arriba)
+   - Esto inicia el seguimiento de tiempo automáticamente
 
-### 4. Repetir para todas las operaciones:
+2. **Pestaña "Seguimiento de tiempo":**
+   - Verás una tabla que registra automáticamente:
+     - Usuario (quien inició la orden)
+     - Duración
+     - Fecha de inicio
+     - Fecha de finalización
+   - El sistema registra el tiempo real trabajado
 
-- Terminación
-- Inspección QC
-- Empaque Final
+3. **Simular trabajo:** (opcional para pruebas)
+   - Espera unos segundos/minutos simulando el trabajo de corte
+   - O continúa inmediatamente al siguiente paso
 
-✅ **Todas las órdenes de trabajo completadas**
+4. **Finalizar la operación:**
+   - Click en el botón **"Terminada"** (arriba a la derecha)
+   - Odoo registra el **tiempo real** vs **tiempo estimado** (15 min)
+
+✅ Operación 1 completada
+
+**Navegación:**
+- Usa las **flechas ← →** junto a "1 / 5" para moverte entre órdenes de trabajo
+
+---
+
+### 4. Ejecutar Operación 2: CONFECCIÓN
+
+Click en la flecha **→** para ir a la orden 2/5 o búscala en la lista de órdenes de trabajo.
+
+**Orden: Costura/Confección**
+
+1. Click **"En progreso"**
+2. (Simular trabajo de costura)
+3. Click **"Terminada"**
+
+✅ Operación 2 completada
+
+---
+
+### 5. Ejecutar Operaciones Restantes
+
+Repite el mismo proceso para las órdenes 3/5, 4/5, 5/5:
+
+**Orden 3/5: Terminación**
+- Click "En progreso" → Trabajar → Click "Terminada"
+
+**Orden 4/5: Inspección QC**
+- Click "En progreso" → Trabajar → Click "Terminada"
+
+**Orden 5/5: Empaque Final**
+- Click "En progreso" → Trabajar → Click "Terminada"
+
+✅ **Todas las órdenes de trabajo completadas** (5/5)
+
+> 💡 **Nota sobre usuarios:** No necesitas crear usuarios específicos (cortador, costurera, etc.) para hacer pruebas. El sistema registra automáticamente quién trabaja en cada orden. Si en el futuro quieres separar por operador, puedes crear usuarios adicionales en Ajustes → Usuarios.
 
 ---
 
