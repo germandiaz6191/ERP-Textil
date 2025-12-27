@@ -394,40 +394,57 @@ Para manejar tallas y colores.
 
 ### 2. Crear Atributo: **TALLA**
 
-Click **Crear**
+Click **Nuevo** (arriba a la izquierda)
 
 **Configuración:**
-- **Nombre del Atributo:** Talla
-- **Modo de Visualización:** Selección Radial
+- **Nombre del atributo:** `Talla`
+- **Tipo de visualización:** Seleccionar `Seleccionar` (radio button)
+- **Modo de creación de las variantes:** Seleccionar `Instantánea` (radio button)
 
-**Valores del Atributo:**
+**Valores del atributo:**
 
-Click **Agregar una línea** para cada talla:
-- XS
-- S
-- M
-- L
-- XL
-- XXL
+En la tabla, click **Agregar una línea** para cada talla:
+
+| Valor | Es val... | Precio ad... |
+|-------|-----------|--------------|
+| XS    | ⬜        | 0,00         |
+| S     | ⬜        | 0,00         |
+| M     | ⬜        | 0,00         |
+| L     | ⬜        | 0,00         |
+| XL    | ⬜        | 0,00         |
+| XXL   | ⬜        | 0,00         |
+
+> 💡 Solo escribe el **Valor** (la talla), los demás campos déjalos por defecto
 
 Click **Guardar**
 
 ### 3. Crear Atributo: **COLOR**
 
-Click **Crear**
+Click **Nuevo**
 
-- **Nombre del Atributo:** Color
-- **Modo de Visualización:** Selección Radial
+**Configuración:**
+- **Nombre del atributo:** `Color`
+- **Tipo de visualización:** Seleccionar `Color` (radio button) ← Usaremos tipo Color para este atributo
+- **Modo de creación de las variantes:** Seleccionar `Instantánea` (radio button)
 
-**Valores:**
-- Blanco
-- Negro
-- Azul
-- Rojo
-- Verde
-- Gris
+**Valores del atributo:**
+
+Click **Agregar una línea** para cada color:
+
+| Valor  | Es val... | Precio ad... |
+|--------|-----------|--------------|
+| Blanco | ⬜        | 0,00         |
+| Negro  | ⬜        | 0,00         |
+| Azul   | ⬜        | 0,00         |
+| Rojo   | ⬜        | 0,00         |
+| Verde  | ⬜        | 0,00         |
+| Gris   | ⬜        | 0,00         |
+
+> 💡 Si usas tipo "Color", podrás seleccionar un color visual para cada valor
 
 Click **Guardar**
+
+✅ **Atributos de Producto Creados** - Talla y Color configurados para crear variantes
 
 ---
 
