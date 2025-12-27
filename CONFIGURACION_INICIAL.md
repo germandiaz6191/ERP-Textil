@@ -452,64 +452,131 @@ Click **Guardar**
 
 ### 1. Ir a Inventario → Productos → Productos
 
-Click **Crear**
+**Ruta:** Inventario → Productos → Productos
 
-#### Producto: **Tela de Algodón**
+Click **Nuevo** (arriba a la izquierda)
 
-**Pestaña Información General:**
-- **Nombre del Producto:** Tela de Algodón
-- **Puede ser vendido:** ❌ (No marcar)
-- **Puede ser comprado:** ✅ (Marcar)
-- **Tipo de Producto:** Almacenable
-- **Categoría:** Materia Prima
-- **Unidad de Medida:** Metros
+---
 
-**Pestaña Compra:**
-- **Precio de Compra:** $15.000 COP/metro
+#### Producto 1: **Tela de Algodón**
 
-Click **Guardar**
+**PESTAÑA: Información general**
 
-#### Producto: **Hilo de Coser**
+**Campos básicos:**
+- **Nombre del producto:** `Tela de Algodón`
+- Checkboxes:
+  - ⬜ **Se puede vender** (NO marcar)
+  - ☑️ **Se puede comprar** (Marcar)
 
-Click **Crear**
+**Campos adicionales:**
+- **Tipo de producto:** `Producto almacenable` (seleccionar del dropdown)
+- **Categoría del producto:** `All / Materia Prima`
 
-- **Nombre:** Hilo de Coser
-- **Puede ser vendido:** ❌
-- **Puede ser comprado:** ✅
-- **Tipo de Producto:** Almacenable
-- **Categoría:** Insumos
-- **Unidad de Medida:** Unidades
-- **Precio de Compra:** $2.000 COP
+**PESTAÑA: Compras**
 
-Click **Guardar**
+En la tabla de proveedores, click **Agregar una línea**:
 
-#### Producto: **Botones**
+| Proveedor | Cantidad | Precio | Divisa |
+|-----------|----------|--------|--------|
+| (opcional - puedes dejarlo vacío o crear uno) | `1` | `15000` | `COP` |
 
-Click **Crear**
+> 💡 **Nota sobre "Cantidad":** Este campo es la **cantidad mínima de compra**, no la unidad de medida. Pon `1` para indicar que el precio aplica desde 1 unidad en adelante.
 
-- **Nombre:** Botones
-- **Puede ser vendido:** ❌
-- **Puede ser comprado:** ✅
-- **Tipo de Producto:** Almacenable
-- **Categoría:** Insumos
-- **Unidad de Medida:** Unidades
-- **Precio de Compra:** $500 COP
+> 💡 **Nota sobre Unidad de Medida:** En Odoo 17, la unidad de medida por defecto es "Unidades". Para tela vendida por metro, el sistema lo trata internamente como unidades, y el precio $15.000 se entiende como "por metro".
 
-Click **Guardar**
+**PESTAÑA: Inventario**
 
-#### Producto: **Etiquetas**
+En la sección **OPERACIONES:**
+- ☑️ **Comprar** (debe estar marcado)
+- ⬜ Fabricar (dejar sin marcar)
 
-Click **Crear**
+**Guardar** el producto
 
-- **Nombre:** Etiquetas
-- **Puede ser vendido:** ❌
-- **Puede ser comprado:** ✅
-- **Tipo de Producto:** Almacenable
-- **Categoría:** Insumos
-- **Unidad de Medida:** Unidades
-- **Precio de Compra:** $200 COP
+---
 
-Click **Guardar**
+#### Producto 2: **Hilo de Coser**
+
+Click **Nuevo**
+
+**PESTAÑA: Información general**
+- **Nombre del producto:** `Hilo de Coser`
+- ⬜ **Se puede vender**
+- ☑️ **Se puede comprar**
+- **Tipo de producto:** `Producto almacenable`
+- **Categoría del producto:** `All / Insumos`
+
+**PESTAÑA: Compras**
+
+Click **Agregar una línea**:
+
+| Proveedor | Cantidad | Precio | Divisa |
+|-----------|----------|--------|--------|
+| (vacío) | `1` | `2000` | `COP` |
+
+**PESTAÑA: Inventario**
+- ☑️ **Comprar**
+
+**Guardar**
+
+---
+
+#### Producto 3: **Botones**
+
+Click **Nuevo**
+
+**PESTAÑA: Información general**
+- **Nombre del producto:** `Botones`
+- ⬜ **Se puede vender**
+- ☑️ **Se puede comprar**
+- **Tipo de producto:** `Producto almacenable`
+- **Categoría del producto:** `All / Insumos`
+
+**PESTAÑA: Compras**
+
+Click **Agregar una línea**:
+
+| Proveedor | Cantidad | Precio | Divisa |
+|-----------|----------|--------|--------|
+| (vacío) | `1` | `500` | `COP` |
+
+**PESTAÑA: Inventario**
+- ☑️ **Comprar**
+
+**Guardar**
+
+---
+
+#### Producto 4: **Etiquetas**
+
+Click **Nuevo**
+
+**PESTAÑA: Información general**
+- **Nombre del producto:** `Etiquetas`
+- ⬜ **Se puede vender**
+- ☑️ **Se puede comprar**
+- **Tipo de producto:** `Producto almacenable`
+- **Categoría del producto:** `All / Insumos`
+
+**PESTAÑA: Compras**
+
+Click **Agregar una línea**:
+
+| Proveedor | Cantidad | Precio | Divisa |
+|-----------|----------|--------|--------|
+| (vacío) | `1` | `200` | `COP` |
+
+**PESTAÑA: Inventario**
+- ☑️ **Comprar**
+
+**Guardar**
+
+---
+
+✅ **Materias Primas e Insumos Creados:**
+- Tela de Algodón (Materia Prima) - $15.000 COP
+- Hilo de Coser (Insumo) - $2.000 COP
+- Botones (Insumo) - $500 COP
+- Etiquetas (Insumo) - $200 COP
 
 ---
 
