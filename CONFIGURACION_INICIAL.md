@@ -582,49 +582,100 @@ Click **Agregar una línea**:
 
 ## Paso 2.4: Crear Producto Terminado con Variantes
 
-### 1. Crear Producto: **Camiseta Básica**
+### 1. Ir a Inventario → Productos → Productos
 
-Ir a **Inventario → Productos → Productos**
+**Ruta:** Inventario → Productos → Productos
 
-Click **Crear**
+Click **Nuevo** (arriba a la izquierda)
 
-**Pestaña Información General:**
-- **Nombre del Producto:** Camiseta Básica
-- **Puede ser vendido:** ✅
-- **Puede ser comprado:** ❌
-- **Tipo de Producto:** Almacenable
-- **Categoría:** Producto Terminado
-- **Unidad de Medida:** Unidades
+---
 
-**Pestaña Variantes:**
+### 2. Crear Producto: **Camiseta Básica**
 
-Click en **"Atributos y Variantes"**
+**PESTAÑA: Información general**
 
-**Agregar Atributos:**
+**Campos básicos:**
+- **Nombre del producto:** `Camiseta Básica`
+- Checkboxes:
+  - ☑️ **Se puede vender** (Marcar - este es un producto para venta)
+  - ⬜ **Se puede comprar** (NO marcar - lo fabricamos, no lo compramos)
 
-1. Click **Agregar una línea**
-   - **Atributo:** Talla
-   - **Valores:** Selecciona: S, M, L, XL
+**Campos adicionales:**
+- **Tipo de producto:** `Producto almacenable`
+- **Política de facturación:** Dejar como está (Cantidad ordenada)
+- **Precio de venta:** `35000` (o el precio que desees)
+- **Categoría del producto:** `All / Producto Terminado`
 
-2. Click **Agregar una línea**
-   - **Atributo:** Color
-   - **Valores:** Selecciona: Blanco, Negro, Azul
+---
 
-Odoo generará automáticamente **12 variantes** (4 tallas × 3 colores)
+### 3. Agregar Variantes (Tallas y Colores)
 
-**Pestaña Ventas:**
-- **Precio de Venta:** $35.000 COP
+**PESTAÑA: Atributos y variantes**
 
-Click **Guardar**
+Click en la pestaña **"Atributos y variantes"**
 
-✅ **Producto con Variantes Creado**
+**Agregar atributo TALLA:**
 
-Verás algo como:
+1. Click **Agregar una línea** en la tabla de atributos
+
+**En la línea que aparece:**
+- **Atributo:** Selecciona `Talla` (del dropdown)
+- **Valores:** Click en el campo y selecciona las tallas que quieres:
+  - ☑️ S
+  - ☑️ M
+  - ☑️ L
+  - ☑️ XL
+
+> 💡 Puedes seleccionar múltiples valores haciendo click en cada uno
+
+**Agregar atributo COLOR:**
+
+2. Click **Agregar una línea** nuevamente
+
+**En la segunda línea:**
+- **Atributo:** Selecciona `Color` (del dropdown)
+- **Valores:** Selecciona los colores que quieres:
+  - ☑️ Blanco
+  - ☑️ Negro
+  - ☑️ Azul
+
+---
+
+### 4. Verificar Generación de Variantes
+
+Odoo generará automáticamente **12 variantes** (4 tallas × 3 colores):
 - Camiseta Básica (S, Blanco)
 - Camiseta Básica (S, Negro)
 - Camiseta Básica (S, Azul)
 - Camiseta Básica (M, Blanco)
-- ... (12 combinaciones)
+- Camiseta Básica (M, Negro)
+- Camiseta Básica (M, Azul)
+- Camiseta Básica (L, Blanco)
+- Camiseta Básica (L, Negro)
+- Camiseta Básica (L, Azul)
+- Camiseta Básica (XL, Blanco)
+- Camiseta Básica (XL, Negro)
+- Camiseta Básica (XL, Azul)
+
+---
+
+### 5. Configurar Inventario
+
+**PESTAÑA: Inventario**
+
+En la sección **OPERACIONES:**
+- ⬜ Comprar (NO marcar - no se compra)
+- ☑️ **Fabricar** (Marcar - se manufactura)
+
+---
+
+### 6. Guardar el Producto
+
+Click **Guardar**
+
+✅ **Producto Terminado con Variantes Creado**
+
+El producto "Camiseta Básica" ahora tiene 12 variantes diferentes que se pueden fabricar y vender.
 
 ---
 
