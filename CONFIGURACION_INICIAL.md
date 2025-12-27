@@ -316,33 +316,71 @@ Solo crea ubicaciones adicionales si necesitas una organización más específic
 
 **Ruta:** Inventario → Configuración → Categorías de Productos
 
+Verás las categorías por defecto:
+- All
+- All / Expenses
+- All / Saleable
+
 ### 2. Crear Categoría: **Producto Terminado**
 
-Click **Crear**
+Click **Nuevo** (arriba a la izquierda)
 
-- **Nombre:** Producto Terminado
-- **Método de Coste:** Precio Promedio
-- **Método de Inventario:** Automatizado
+**Campos a llenar:**
+
+**Categoría:**
+- **Nombre:** `Producto Terminado`
+- **Categoría principal:** Dejar vacío o "All" (valor por defecto)
+
+**VALUACIÓN DE INVENTARIO:**
+- **Método de coste:** `Costo promedio (AVCO)`
+
+**LOGÍSTICA:**
+- **Rutas:** Dejar vacío
+- **Estrategia de remoción forzada:** Dejar vacío o seleccionar `Primeras entradas, primeras salidas (PEPS)`
 
 Click **Guardar**
 
 ### 3. Crear Categoría: **Materia Prima**
 
-Click **Crear**
+Click **Nuevo**
 
-- **Nombre:** Materia Prima
-- **Método de Coste:** Precio Promedio
+**Campos a llenar:**
+
+**Categoría:**
+- **Nombre:** `Materia Prima`
+- **Categoría principal:** Dejar vacío o "All"
+
+**VALUACIÓN DE INVENTARIO:**
+- **Método de coste:** `Costo promedio (AVCO)`
 
 Click **Guardar**
 
 ### 4. Crear Categoría: **Insumos**
 
-Click **Crear**
+Click **Nuevo**
 
-- **Nombre:** Insumos
-- **Método de Coste:** Precio Promedio
+**Campos a llenar:**
+
+**Categoría:**
+- **Nombre:** `Insumos`
+- **Categoría principal:** Dejar vacío o "All"
+
+**VALUACIÓN DE INVENTARIO:**
+- **Método de coste:** `Costo promedio (AVCO)`
 
 Click **Guardar**
+
+### 5. Verificar Categorías Creadas
+
+En la lista de **Categorías de productos** deberías ver ahora:
+- All
+- All / Expenses
+- All / Saleable
+- **Producto Terminado** ✅
+- **Materia Prima** ✅
+- **Insumos** ✅
+
+✅ **Categorías de Productos Creadas**
 
 ---
 
