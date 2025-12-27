@@ -925,20 +925,46 @@ Repite el mismo proceso para las órdenes 3/5, 4/5, 5/5:
 
 ## Paso 3.4: Completar Producción
 
+Una vez completadas todas las órdenes de trabajo (5/5), es momento de finalizar la orden de producción.
+
 ### 1. Volver a la Orden de Producción
 
-Click en **MO/00001**
+**Opción A: Desde la última orden de trabajo** (más rápido)
+- En la pantalla de la orden de trabajo, busca el campo **"Orden de fabricación: WH/MO/00001"**
+- Click en **WH/MO/00001**
 
-### 2. Producir
+**Opción B: Desde el menú principal**
+- **Ruta:** Manufactura → Operaciones → Órdenes de fabricación
+- Busca y click en tu orden **WH/MO/00001**
 
-Click en **"Producir Todo"**
+### 2. Verificar Estado
 
-Odoo:
-- ✅ Descuenta materias primas del inventario
-- ✅ Agrega 10 unidades de "Camiseta Básica (M, Blanco)" al inventario
-- ✅ Traslada automáticamente a la ubicación **WH/Stock/Producto Terminado**
+Deberías ver:
+- ✅ Todas las órdenes de trabajo completadas (5/5 terminadas)
+- Estado: Listo para producir o En producción
 
-Estado: **Hecho** ✅
+### 3. Producir
+
+Click en el botón **"Producir"** o **"Producir todo"** (arriba a la derecha)
+
+**Odoo automáticamente:**
+- ✅ **Descuenta materias primas** del inventario (WH/Existencias):
+  - Tela de Algodón: -150 unidades
+  - Hilo de Coser: -10 unidades
+  - Botones: -40 unidades
+  - Etiquetas: -10 unidades
+- ✅ **Agrega producto terminado** al inventario:
+  - +10 unidades de "Camiseta Básica (M, Blanco)"
+- ✅ **Actualiza ubicaciones** de inventario
+
+**Estado final:** Hecho ✅
+
+### 4. Verificar la Orden Completada
+
+En la orden de producción verás:
+- **Estado:** Hecho
+- **Producto fabricado:** 10,00 unidades
+- **Fecha:** Fecha de finalización registrada
 
 ---
 
